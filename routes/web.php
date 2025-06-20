@@ -24,3 +24,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/cektemplate', function(){
     return view('layouts.template');
 });
+
+Route::get('/dashboard', function(){
+    return view('layouts.dashboard');
+});
+
+Route::get('/pelanggan', function(){
+    return view('layouts.pelanggan');
+});
