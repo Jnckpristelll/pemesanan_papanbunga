@@ -6,7 +6,7 @@
     Dashboard
 @endsection
 
-@section('content')
+@section('content1')
 <ul class="pcoded-item pcoded-left-item">
     <li class="">
         <a href="index.html">
