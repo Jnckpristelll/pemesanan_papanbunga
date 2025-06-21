@@ -1,9 +1,9 @@
 @extends('layouts.template')
 
-@section('title', 'dashboard')
+@section('title', 'produk')
 
 @section('headline')
-    Dashboard
+    Produk
 @endsection
 
 @section('content')

@@ -32,3 +32,16 @@ Route::get('/dashboard', function(){
 Route::get('/pelanggan', function(){
     return view('layouts.pelanggan');
 });
+
+Route::get('/produk', function(){
+    return view('layouts.produk');
+});
+
+Route::get('/pesanan', function(){
+    return view('layouts.pesanan');
+});
+
+Route::get('/detailpesanan', function(){
+    return view('layouts.detailpesanan');
+});
+
