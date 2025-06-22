@@ -1,15 +1,15 @@
 @extends('layouts.template')
 
-@section('title', 'pelanggan')
+@section('title', 'dashboard')
 
 @section('headline')
-    Pelanggan
+    Dashboard
 @endsection
 
 @section('content')
     <ul class="pcoded-item pcoded-left-item">
         <li class="">
-            <a href="index.html">
+            <a href="dashboard.blade.php">
                 <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                 <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                 <span class="pcoded-mcaret"></span>
@@ -52,5 +52,4 @@
 
     </ul>
 @endsection
-
 

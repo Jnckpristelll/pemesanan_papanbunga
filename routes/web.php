@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PelangganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,22 +27,34 @@ Route::get('/cektemplate', function(){
 });
 
 Route::get('/dashboard', function(){
-    return view('layouts.dashboard');
+    return view('layouts.dashboard.index');
 });
 
 Route::get('/pelanggan', function(){
-    return view('layouts.pelanggan');
+    return view('layouts.pelanggan.index');
 });
 
 Route::get('/produk', function(){
-    return view('layouts.produk');
+    return view('layouts.produk.index');
 });
 
 Route::get('/pesanan', function(){
-    return view('layouts.pesanan');
+    return view('layouts.pesanan.index');
 });
 
 Route::get('/detailpesanan', function(){
-    return view('layouts.detailpesanan');
+    return view('layouts.detail_pesanan.index');
 });
+
+
+
+
+Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan.index');
+Route::post('/pelanggan/store', [PelangganController::class, 'store'])->name('pelanggan.store');
+
+Route::resource('/pelanggan', \App\Http\Controllers\PelangganController::class);
+
+
+
+
 

@@ -223,8 +223,16 @@
                                 </div>
                             </div> --}}
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
-                            @yield('content')
-                            {{-- <ul class="pcoded-item pcoded-left-item">
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="">
+                                    <a href="index.html">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="pcoded-item pcoded-left-item">
                                 <li class="">
                                     <a href="index.html">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
@@ -236,8 +244,9 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="form-elements-component.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Pelanggan</span>
+                                        <span class="pcoded-micon"><i class="ti-user"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext"
+                                            data-i18n="nav.form-components.main">Pelanggan</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
@@ -245,7 +254,7 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="bs-basic-table.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-micon"><i class="ti-bag"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Produk</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -254,19 +263,21 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="chart.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                        <span class="pcoded-micon"><i class="ti-shopping-cart"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Pesanan</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="map-google.html">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Detail Pesanan</span>
+                                    <a href="chart.html">
+                                        <span class="pcoded-micon"><i class="ti-pencil-alt"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Detail
+                                            Pesanan</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                            </ul> --}}
+
+                            </ul>
                         </div>
                     </nav>
                     {{-- conten pertama --}}
@@ -314,11 +325,15 @@
                                     </div>
 
                                     {{-- conten kedua --}}
-                                    <div class="page-body">
+
+                                    @yield('form')
+                                    @yield('tambah')
+
+                                    {{-- <div class="page-body">
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="card">
-                                                    @yield('form')
+
                                                     <div class="card-header">
                                                         <h5>Hello card</h5>
                                                         <span>lorem ipsum dolor sit amet, consectetur adipisicing
@@ -348,7 +363,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
+
+
 
                                 </div>
                             </div>

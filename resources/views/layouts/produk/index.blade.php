@@ -1,9 +1,9 @@
 @extends('layouts.template')
 
-@section('title', 'dashboard')
+@section('title', 'produk')
 
 @section('headline')
-    Dashboard
+    Produk
 @endsection
 
 @section('content')
@@ -15,7 +15,6 @@
                 <span class="pcoded-mcaret"></span>
             </a>
         </li>
-    </ul>
     <ul class="pcoded-item pcoded-left-item">
         <li>
             <a href="form-elements-component.html">

@@ -1,9 +1,9 @@
 @extends('layouts.template')
 
-@section('title', 'produk')
+@section('title', 'pesanan')
 
 @section('headline')
-    Produk
+    Pesanan
 @endsection
 
 @section('content')
@@ -49,6 +49,5 @@
                 <span class="pcoded-mcaret"></span>
             </a>
         </li>
-
     </ul>
 @endsection
