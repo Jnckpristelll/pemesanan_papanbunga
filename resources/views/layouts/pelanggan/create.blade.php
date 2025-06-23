@@ -7,7 +7,8 @@
 @endsection
 
 @section('content')
-@endsection
+@section('form')
+
 
 @section('tambah')
 <div class="container-fluid mt-4">

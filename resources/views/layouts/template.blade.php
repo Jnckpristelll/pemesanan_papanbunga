@@ -150,7 +150,7 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!">
-                                    <img src="assets/images/avatar-4.jpg" class="img-radius"
+                                    <img src="assets/images/1.png" class="img-radius"
                                         alt="User-Profile-Image">
                                     <span>John Doe</span>
                                     <i class="ti-angle-down"></i>
