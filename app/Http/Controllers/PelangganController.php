@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pelanggans;
+use App\Models\Pelanggan;
 
 class PelangganController extends Controller
 {
@@ -12,8 +12,11 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        $pelanggans = Pelanggans::all(); // Ambil semua data dari model Pelanggan
-    return view('layouts.pelanggan.index', compact('pelanggans'));
+        // menampilkan data dosen
+        $nomor = 1;
+        $pelanggan = Pelanggan::all();
+        return view('layouts.pelanggan.index',compact('pelanggan','nomor'));
+
     }
 
     /**
@@ -21,6 +24,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
+        // menampilkan form tambah
         return view('layouts.pelanggan.create');
     }
 
@@ -29,19 +33,19 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-        'nama' => 'required|string|max:255',
-        'no_handphone' => 'required|string|max:20',
-        'alamat' => 'required|string',
+        // proses tambah
+        $request->validate([
+        'nama' => 'required',
+        'no_handphone' => 'required',
+        'alamat' => 'required',
     ]);
+        $pelanggan = new Pelanggan;
+        $pelanggan->nama = $request->nama;
+        $pelanggan->no_handphone = $request->no_handphone;
+        $pelanggan->alamat = $request->alamat;
+        $pelanggan->save();
 
-    Pelanggans::create([
-        'nama' => $request->nama,
-        'no_handphone' => $request->no_handphone,
-        'alamat' => $request->alamat,
-    ]);
-
-    return redirect()->route('pelanggan.index')->with('success', 'Data pelanggan berhasil disimpan!');
+        return redirect('/pelanggan');
     }
 
     /**
@@ -49,7 +53,7 @@ class PelangganController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // menampilkan data detail
     }
 
     /**
@@ -57,8 +61,9 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
-        $pelanggans = Pelanggans::findOrFail($id);
-    return view('layouts.pelanggan.edit', compact('pelanggans'));
+        // form edit
+        $pelanggan = Pelanggan::find($id);
+        return view('layouts.pelanggan.edit',compact('pelanggan'));
     }
 
     /**
@@ -66,16 +71,15 @@ class PelangganController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-        'nama' => 'required',
-        'no_handphone' => 'required',
-        'alamat' => 'required',
-    ]);
+        // proses edit
+        $pelanggan = Pelanggan::find($id);
+        $pelanggan->nama = $request->nama;
+        $pelanggan->no_handphone = $request->no_handphone;
+        $pelanggan->alamat = $request->alamat;
+        $pelanggan->save();
 
-    $pelanggans = Pelanggans::findOrFail($id);
-    $pelanggans->update($request->all());
 
-    return redirect()->route('pelanggan.index')->with('success', 'Pelanggan berhasil diperbarui');
+        return redirect('/pelanggan');
     }
 
     /**
@@ -83,9 +87,10 @@ class PelangganController extends Controller
      */
     public function destroy(string $id)
     {
-        $pelanggans = Pelanggans::findOrFail($id);
-    $pelanggans->delete();
+        // proses hapus
+        $pelanggan = Pelanggan::find($id);
+        $pelanggan->delete();
 
-    return redirect()->route('pelanggan.index')->with('success', 'Pelanggan berhasil dihapus');
+        return redirect('/pelanggan');
     }
 }

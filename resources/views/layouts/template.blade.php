@@ -196,11 +196,11 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
                                 <div class="main-menu-header">
-                                    <img class="img-40 img-radius" src="assets/images/avatar-4.jpg"
+                                    <img class="img-40 img-radius" src="assets/images/1.png"
                                         alt="User-Profile-Image">
                                     <div class="user-details">
                                         <span>John Doe</span>
-                                        <span id="more-details">UX Designer<i class="ti-angle-down"></i></span>
+                                        <span id="more-details">Admin<i class="ti-angle-down"></i></span>
                                     </div>
                                 </div>
 
@@ -225,7 +225,7 @@
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="">
-                                    <a href="index.html">
+                                    <a href="{{ route('dashboard') }}" class="nav-link">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>
@@ -234,7 +234,7 @@
                             </ul>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="form-elements-component.html">
+                                    <a href="{{ route('pelanggan') }}" class="nav-link">
                                         <span class="pcoded-micon"><i class="ti-user"></i><b>FC</b></span>
                                         <span class="pcoded-mtext"
                                             data-i18n="nav.form-components.main">Pelanggan</span>
@@ -244,7 +244,7 @@
                             </ul>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="bs-basic-table.html">
+                                    <a href="{{ route('produk') }}" class="nav-link">
                                         <span class="pcoded-micon"><i class="ti-bag"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Produk</span>
                                         <span class="pcoded-mcaret"></span>
@@ -253,14 +253,14 @@
                             </ul>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li>
-                                    <a href="chart.html">
+                                    <a href="{{ route('pesanan') }}" class="nav-link">
                                         <span class="pcoded-micon"><i class="ti-shopping-cart"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Pesanan</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="chart.html">
+                                    <a href="{{ route('detailpesanan') }}" class="nav-link">
                                         <span class="pcoded-micon"><i class="ti-pencil-alt"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Detail
                                             Pesanan</span>

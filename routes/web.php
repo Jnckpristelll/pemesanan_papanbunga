@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PesananController;
+use App\Http\Controllers\DetailpesananController;
+use App\Http\Controllers\ProdukController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,39 +27,57 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/cektemplate', function(){
-    return view('layouts.template');
-});
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/dashboard', function(){
-    return view('layouts.dashboard.index');
-});
+Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan');
 
-Route::get('/pelanggan', function(){
-    return view('layouts.pelanggan.index');
-});
+Route::get('/pelanggan/create', [PelangganController::class, 'create']);
+Route::post('/pelanggan', [PelangganController::class, 'store']);
+Route::get('/pelanggan/edit/{id}', [PelangganController::class, 'edit']);
+Route::put('/pelanggan/{id}', [PelangganController::class, 'update']);
+Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy']);
 
-Route::get('/produk', function(){
-    return view('layouts.produk.index');
-});
-
-Route::get('/pesanan', function(){
-    return view('layouts.pesanan.index');
-});
-
-Route::get('/detailpesanan', function(){
-    return view('layouts.detail_pesanan.index');
-});
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
+Route::get('/detailpesanan', [DetailpesananController::class, 'index'])->name('detailpesanan');
 
 
 
 
-Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan.index');
-Route::post('/pelanggan/store', [PelangganController::class, 'store'])->name('pelanggan.store');
 
-Route::resource('/pelanggan', \App\Http\Controllers\PelangganController::class);
+// Route::get('/cektemplate', function(){
+//     return view('layouts.template');
+// });
 
-Route::get('/dosen', [dosenController::class, 'index']);
+// Route::get('/dashboard', function(){
+//     return view('layouts.dashboard.index');
+// });
+
+// Route::get('/pelanggan', function(){
+//     return view('layouts.pelanggan.index');
+// });
+
+// Route::get('/produk', function(){
+//     return view('layouts.produk.index');
+// });
+
+// Route::get('/pesanan', function(){
+//     return view('layouts.pesanan.index');
+// });
+
+// Route::get('/detailpesanan', function(){
+//     return view('layouts.detail_pesanan.index');
+// });
+
+
+
+
+
+
+
+
+
+
 
 
 
