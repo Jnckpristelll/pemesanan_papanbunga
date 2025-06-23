@@ -54,7 +54,7 @@ Route::post('/pelanggan/store', [PelangganController::class, 'store'])->name('pe
 
 Route::resource('/pelanggan', \App\Http\Controllers\PelangganController::class);
 
-
+Route::get('/dosen', [dosenController::class, 'index']);
 
 
 
