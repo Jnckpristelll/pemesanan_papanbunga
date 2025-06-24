@@ -100,6 +100,21 @@
                             </li>
                         </ul>
                         <ul class="nav-right">
+                            <li class="nav-item">
+                                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                                        class="fas fa-bars"></i></a>
+                            </li>
+                            <li class="nav-item d-none d-sm-inline-block">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
                             <li class="header-notification">
                                 <a href="#!">
                                     <i class="ti-bell"></i>
@@ -150,8 +165,7 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!">
-                                    <img src="assets/images/1.png" class="img-radius"
-                                        alt="User-Profile-Image">
+                                    <img src="assets/images/1.png" class="img-radius" alt="User-Profile-Image">
                                     <span>John Doe</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
@@ -181,6 +195,7 @@
                                             <i class="ti-layout-sidebar-left"></i> Logout
                                         </a>
                                     </li>
+
                                 </ul>
                             </li>
                         </ul>

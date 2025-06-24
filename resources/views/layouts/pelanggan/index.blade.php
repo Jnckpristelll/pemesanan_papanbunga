@@ -43,7 +43,7 @@
                                         <td>{{ $data->alamat }}</td>
                                         <td>
                                             <a href="/pelanggan/edit/{{ $data->id }}" class="btn btn-info btn-sm" title="Edit">
-                                                <i class="fa-solid fa-pen-to-square"></i>
+                                                <i class="fa- fa-pen-to-square"></i>
                                             </a>
 
                                             <!-- Tombol modal hapus -->
