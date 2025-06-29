@@ -1,9 +1,9 @@
 @extends('layouts.template')
 
-@section('title', 'Tambah Pelanggan')
+@section('title', 'Tambah Pesanan')
 
 @section('headline')
-    Form Tambah Pelanggan
+    Form Tambah Pesanan
 @endsection
 
 
@@ -15,12 +15,12 @@
         <div class="col-lg-12">
                 <div class="card shadow-sm">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="mb-0">Form Tambah Pelanggan</h3>
-                        <a href="{{ url('/pelanggan') }}" class="btn btn-secondary btn-sm">Kembali</a>
+                        <h3 class="mb-0">Form Tambah Pesanan</h3>
+                        <a href="{{ url('/pesanan') }}" class="btn btn-secondary btn-sm">Kembali</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <form method="POST" action="{{ url('/pelanggan') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ url('/pesanan/') }}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="mb-3">
@@ -50,5 +50,4 @@
                 </div>
             </div>
         </div>
-
     @endsection

@@ -37,15 +37,25 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan');
 
+// route pelanggan
+Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan');
 Route::get('/pelanggan/create', [PelangganController::class, 'create']);
 Route::post('/pelanggan', [PelangganController::class, 'store']);
 Route::get('/pelanggan/edit/{id}', [PelangganController::class, 'edit']);
 Route::put('/pelanggan/{id}', [PelangganController::class, 'update']);
 Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy']);
+// end route pelanggan
 
+
+// route produk
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('/produk/create', [ProdukController::class, 'create']);
+Route::post('/produk', [ProdukController::class, 'store']);
+Route::get('/produk/edit/{id}', [ProdukController::class, 'edit']);
+Route::put('/produk/{id}', [ProdukController::class, 'update']);
+Route::delete('/produk/{id}', [ProdukController::class, 'destroy']);
+// end route produk
 Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
 Route::get('/detailpesanan', [DetailpesananController::class, 'index'])->name('detailpesanan');
 

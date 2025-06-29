@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class ProdukController extends Controller
 {
@@ -11,7 +12,9 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return view('layouts.produk.index');
+        $nomor = 1;
+        $produk = Produk::all();
+        return view('layouts.produk.index', compact('produk', 'nomor'));
     }
 
     /**
@@ -19,7 +22,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('layouts.produk.create');
     }
 
     /**
@@ -27,7 +30,22 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi data
+        $request->validate([
+            'nama' => 'required|in:Sunat Rasul,Pernikahan,Duka Cita,Ucapan Selamat',
+            'deskripsi' => 'required|string',
+            'harga' => 'required|numeric|min:0',
+            'ukuran' => 'required|in:kecil,sedang,besar',
+        ]);
+
+        $produk = new Produk;
+        $produk->nama = $request->nama;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->harga = $request->harga;
+        $produk->ukuran = $request->ukuran;
+        $produk->save();
+
+        return redirect('/produk');
     }
 
     /**
@@ -35,7 +53,7 @@ class ProdukController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // menampilkan data detail
     }
 
     /**
@@ -43,7 +61,8 @@ class ProdukController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produk = Produk::findOrFail($id);
+        return view('layouts.produk.edit', compact('produk'));
     }
 
     /**
@@ -51,7 +70,15 @@ class ProdukController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // proses edit
+        $produk = Produk::find($id);
+        $produk->nama = $request->nama;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->harga = $request->harga;
+        $produk->ukuran = $request->ukuran;
+        $produk->save();
+
+        return redirect('/produk');
     }
 
     /**
@@ -59,6 +86,9 @@ class ProdukController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $produk = Produk::findOrFail($id);
+        $produk->delete();
+
+        return redirect('/produk')->with('success', 'Data produk berhasil dihapus.');
     }
 }

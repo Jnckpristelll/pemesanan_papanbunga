@@ -23,6 +23,9 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href={{ asset('/assets/css/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('/assets/css/jquery.mCustomScrollbar.css') }}>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -79,7 +82,7 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="index.html">
-                            <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                            <img class="img-fluid" src="{{ asset('assets/images/logo.png') }}" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -100,21 +103,11 @@
                             </li>
                         </ul>
                         <ul class="nav-right">
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                                         class="fas fa-bars"></i></a>
-                            </li>
-                            <li class="nav-item d-none d-sm-inline-block">
-                                <a class="nav-link" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                            </li> --}}
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
                             <li class="header-notification">
                                 <a href="#!">
                                     <i class="ti-bell"></i>
@@ -127,7 +120,8 @@
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center" src="assets/images/user.png"
+                                            <img class="d-flex align-self-center"
+                                                src="{{ asset('assets/images/user.png') }}"
                                                 alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">John Doe</h5>
@@ -139,7 +133,8 @@
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center" src="assets/images/user.png"
+                                            <img class="d-flex align-self-center"
+                                                src="{{ asset('assets/images/user.png') }}"
                                                 alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">Joseph William</h5>
@@ -151,7 +146,8 @@
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center" src="assets/images/user.png"
+                                            <img class="d-flex align-self-center"
+                                                src="{{ asset('assets/images/user.png') }}"
                                                 alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">Sara Soudein</h5>
@@ -165,7 +161,8 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!">
-                                    <img src="assets/images/1.png" class="img-radius" alt="User-Profile-Image">
+                                    <img src="{{ asset('assets/images/user.png') }}" class="img-radius"
+                                        alt="User-Profile-Image">
                                     <span>John Doe</span>
                                     <i class="ti-angle-down"></i>
                                 </a>
@@ -185,17 +182,19 @@
                                             <i class="ti-email"></i> My Messages
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-lock"></i> Lock Screen
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="auth-normal-sign-in.html">
-                                            <i class="ti-layout-sidebar-left"></i> Logout
-                                        </a>
-                                    </li>
+                                    <li class="nav-item d-none d-sm-inline-block">
+                                        <a class="nav-link" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            <i class="ti-layout-sidebar-left"></i>
+                                            {{ __('Logout') }}
 
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -211,15 +210,15 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="">
                                 <div class="main-menu-header">
-                                    <img class="img-40 img-radius" src="assets/images/1.png"
+                                    <img class="img-40 img-radius" src="{{ asset('assets/images/user.png') }}"
                                         alt="User-Profile-Image">
                                     <div class="user-details">
                                         <span>John Doe</span>
-                                        <span id="more-details">Admin<i class="ti-angle-down"></i></span>
+                                        <span id="more-details">Admin</span>
                                     </div>
                                 </div>
 
-                                <div class="main-menu-content">
+                                {{-- <div class="main-menu-content">
                                     <ul>
                                         <li class="more-details">
                                             <a href="#"><i class="ti-user"></i>View Profile</a>
@@ -228,7 +227,7 @@
                                                     class="ti-layout-sidebar-left"></i>Logout</a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                             {{-- <div class="pcoded-search">
                                 <span class="searchbar-toggle"> </span>
@@ -299,8 +298,6 @@
                                                         class="icofont icofont icofont icofont-file-document bg-c-blue"></i>
                                                     <div class="d-inline">
                                                         <h4>@yield('headline')</h4>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing
-                                                            elit</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -332,8 +329,8 @@
 
                                     {{-- conten kedua --}}
 
-                                    @yield('form')
-                                    @yield('tambah')
+                                    @yield('content')
+
 
                                     {{-- <div class="page-body">
                                         <div class="row">
@@ -448,6 +445,9 @@
     <script src={{ asset('/assets/js/pcoded.min.js') }}></script>
     <script src={{ asset('/assets/js/demo-12.js') }}></script>
     <script src={{ asset('/assets/js/jquery.mCustomScrollbar.concat.min.js') }}></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

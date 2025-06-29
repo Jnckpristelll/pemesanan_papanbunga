@@ -1,9 +1,9 @@
 @extends('layouts.template')
 
-@section('title', 'Edit Pelanggan')
+@section('title', 'Edit Pesanan')
 
 @section('headline')
-    Edit Data Pelanggan
+    Edit Data Pesanan
 @endsection
 
 @section('content')
@@ -15,13 +15,13 @@
                     <h4>Edit Pelanggan</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ url('/pelanggan/' . $pelanggan->id) }}" method="POST">
+                    <form action="{{ url('/pesanan' . $pesanan->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $pelanggan->nama }}" required>
+                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $pesanan->nama }}" required>
                         </div>
 
                         <div class="mb-3">
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <a href="{{ url('/pelanggan') }}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ url('/pelanggan/') }}" class="btn btn-secondary">Kembali</a>
                             <button type="submit" class="btn btn-success">Simpan Perubahan</button>
                         </div>
                     </form>
