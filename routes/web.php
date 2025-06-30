@@ -56,7 +56,15 @@ Route::get('/produk/edit/{id}', [ProdukController::class, 'edit']);
 Route::put('/produk/{id}', [ProdukController::class, 'update']);
 Route::delete('/produk/{id}', [ProdukController::class, 'destroy']);
 // end route produk
+
+// route pesanan
 Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
+Route::get('/pesanan/create', [PesananController::class, 'create']);
+Route::post('/pesanan', [PesananController::class, 'store']);
+Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
+Route::put('/pesanan/{id}', [PesananController::class, 'update']);
+Route::delete('/pesanan/{id}', [PesananController::class, 'destroy']);
+// end route pesanan
 Route::get('/detailpesanan', [DetailpesananController::class, 'index'])->name('detailpesanan');
 
 

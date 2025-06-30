@@ -12,7 +12,7 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        // menampilkan data dosen
+        // menampilkan data pelanggan
         $nomor = 1;
         $pelanggan = Pelanggan::all();
         return view('layouts.pelanggan.index',compact('pelanggan','nomor'));
