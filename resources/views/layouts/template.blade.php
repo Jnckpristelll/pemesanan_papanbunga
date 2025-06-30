@@ -274,7 +274,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('detailpesanan') }}" class="nav-link">
+                                    <a href="{{ route('detail_pesanan') }}" class="nav-link">
                                         <span class="pcoded-micon"><i class="ti-pencil-alt"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Detail
                                             Pesanan</span>
@@ -301,14 +301,21 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="pcoded-search">
+                                            <form action="{{ url('/produk') }}" method="GET"
+                                                class="pcoded-search-box d-flex">
+                                                <input type="text" name="search" placeholder="Cari produk..."
+                                                    class="form-control" value="{{ request('search') }}">
+                                                <button type="submit" class="btn btn-light ms-2"><i
+                                                        class="ti-search"></i></button>
+                                            </form>
+                                            {{-- <div class="pcoded-search">
                                                 <span class="searchbar-toggle"> </span>
                                                 <div class="pcoded-search-box ">
                                                     <input type="text" placeholder="Search">
                                                     <span class="search-icon"><i class="ti-search"
                                                             aria-hidden="true"></i></span>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             {{-- {{-- {{-- <div class="col-lg-4">
                                                 <div class="page-header-breadcrumb">
                                                     <ul class="breadcrumb-title">

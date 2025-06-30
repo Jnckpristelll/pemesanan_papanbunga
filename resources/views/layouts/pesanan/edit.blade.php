@@ -7,41 +7,67 @@
 @endsection
 
 @section('content')
-<div class="container-fluid mt-4">
-    <div class="row justify-content-center">
-        <div class="col-lg-12">
-            <div class="card shadow">
-                <div class="card-header">
-                    <h4>Edit Pelanggan</h4>
-                </div>
-                <div class="card-body">
-                    <form action="{{ url('/pesanan' . $pesanan->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
+    <div class="container-fluid mt-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h4>Edit Pesanan</h4>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ url('/pesanan/' . $pesanan->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
 
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $pesanan->nama }}" required>
-                        </div>
+                            {{-- ID Pelanggan --}}
+                            <div class="mb-3">
+                                <label for="id_pelanggan" class="form-label">ID Pelanggan</label>
+                                <input type="number" name="id_pelanggan" id="id_pelanggan" class="form-control"
+                                    value="{{ $pesanan->id_pelanggan }}" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="no_handphone" class="form-label">No Handphone</label>
-                            <input type="text" class="form-control" id="no_handphone" name="no_handphone" value="{{ $pelanggan->no_handphone }}" required>
-                        </div>
+                            {{-- Tanggal Pesan --}}
+                            <div class="mb-3">
+                                <label for="tgl_pesan" class="form-label">Tanggal Pesan</label>
+                                <input type="date" class="form-control" id="tgl_pesan" name="tgl_pesan"
+                                    value="{{ $pesanan->tgl_pesan }}" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <textarea class="form-control" id="alamat" name="alamat" rows="3" required>{{ $pelanggan->alamat }}</textarea>
-                        </div>
+                            {{-- Tanggal Pengiriman --}}
+                            <div class="mb-3">
+                                <label for="tgl_pengiriman" class="form-label">Tanggal Pengiriman</label>
+                                <input type="date" class="form-control" id="tgl_pengiriman" name="tgl_pengiriman"
+                                    value="{{ $pesanan->tgl_pengiriman }}" required>
+                            </div>
 
-                        <div class="d-flex justify-content-between">
-                            <a href="{{ url('/pelanggan/') }}" class="btn btn-secondary">Kembali</a>
-                            <button type="submit" class="btn btn-success">Simpan Perubahan</button>
-                        </div>
-                    </form>
+                            {{-- Alamat Pengiriman --}}
+                            <div class="mb-3">
+                                <label for="alamat_pengiriman" class="form-label">Alamat Pengiriman</label>
+                                <textarea class="form-control" id="alamat_pengiriman" name="alamat_pengiriman" rows="3" required>{{ $pesanan->alamat_pengiriman }}</textarea>
+                            </div>
+
+                            {{-- Status (Enum) --}}
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select name="status" id="status" class="form-select" required>
+                                    @foreach (['pending', 'pengiriman gagal', 'berhasil'] as $status)
+                                        <option value="{{ $status }}"
+                                            {{ $pesanan->status === $status ? 'selected' : '' }}>
+                                            {{ ucfirst($status) }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            {{-- Tombol --}}
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ url('/pesanan') }}" class="btn btn-secondary">Kembali</a>
+                                <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

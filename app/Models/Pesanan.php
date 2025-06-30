@@ -9,8 +9,6 @@ class pesanan extends Model
 {
     use HasFactory;
 
-    protected $table = 'pesanan'; // pastikan nama tabel sesuai
-
     protected $fillable = [
         'id_pelanggan',
         'tgl_pesan',
@@ -19,8 +17,9 @@ class pesanan extends Model
         'status',
     ];
 
-    protected $casts = [
-        'tgl_pesan' => 'date',
-        'tgl_pengiriman' => 'date',
-    ];
-}
+//     protected $casts = [
+//         'tgl_pesan' => 'date',
+//         'tgl_pengiriman' => 'date',
+//     ];
+//
+ }

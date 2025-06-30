@@ -47,7 +47,7 @@
                             <!-- DESKRIPSI -->
                             <div class="mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3" placeholder="Masukkan Tulisan Ucapan"
+                                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="3" placeholder="Masukkan Deskripsi"
                                     required></textarea>
                             </div>
 

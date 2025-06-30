@@ -33,11 +33,11 @@ class PesananController extends Controller
     {
         //proses tambah
         $request->validate([
-            'id_pelanggan' => 'required|exists:pelanggans,id',
+            'id_pelanggan' => 'required',
             'tgl_pesan' => 'required|date',
             'tgl_pengiriman' => 'required|date|after_or_equal:tgl_pesan',
             'alamat_pengiriman' => 'required|string|max:255',
-            'status' => 'required|in:pending,sedang dikirim,berhasil',
+            'status' => 'required|in:pending,pengiriman gagal,berhasil',
         ]);
 
         $pesanan = new Pesanan;

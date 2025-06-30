@@ -10,8 +10,26 @@ class ProdukController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
+
     {
+        {
+    $nomor = 1;
+
+    $query = Produk::query();
+
+    if ($request->has('search')) {
+        $search = $request->search;
+        $query->where('nama', 'like', "%$search%")
+              ->orWhere('deskripsi', 'like', "%$search%");
+    }
+
+    $produk = $query->get();
+
+    return view('layouts.produk.index', compact('produk','nomor'));
+}
+
+
         $nomor = 1;
         $produk = Produk::all();
         return view('layouts.produk.index', compact('produk', 'nomor'));
@@ -91,4 +109,10 @@ class ProdukController extends Controller
 
         return redirect('/produk')->with('success', 'Data produk berhasil dihapus.');
     }
+
+
+
+
+
+
 }

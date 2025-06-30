@@ -65,8 +65,15 @@ Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
 Route::put('/pesanan/{id}', [PesananController::class, 'update']);
 Route::delete('/pesanan/{id}', [PesananController::class, 'destroy']);
 // end route pesanan
-Route::get('/detailpesanan', [DetailpesananController::class, 'index'])->name('detailpesanan');
 
+// route detail pesanan
+Route::get('/detail_pesanan', [DetailpesananController::class, 'index'])->name('detail_pesanan');
+Route::get('/detail_pesanan/create', [DetailpesananController::class, 'create']);
+Route::post('/detail_pesanan', [DetailpesananController::class, 'store']);
+Route::get('/detail_pesanan/edit/{id}', [DetailpesananController::class, 'edit']);
+Route::put('/detail_pesanan/{id}', [DetailpesananController::class, 'update']);
+Route::delete('/detail_pesanan/{id}', [DetailpesananController::class, 'destroy']);
+// route end detail pesanan
 
 
 

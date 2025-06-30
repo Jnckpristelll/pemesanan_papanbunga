@@ -50,7 +50,7 @@
                                         <td>
                                             <span class="badge
                                                 @if($data->status == 'pending') bg-warning
-                                                @elseif($data->status == 'sedang di kirim') bg-info
+                                                @elseif($data->status == 'pengiriman gagal') bg-danger
                                                 @elseif($data->status == 'berhasil') bg-success
                                                 @endif">
                                                 {{ ucfirst($data->status) }}
