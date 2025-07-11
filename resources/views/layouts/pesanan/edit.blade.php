@@ -20,11 +20,26 @@
                             @method('PUT')
 
                             {{-- ID Pelanggan --}}
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="id_pelanggan" class="form-label">ID Pelanggan</label>
-                                <input type="number" name="id_pelanggan" id="id_pelanggan" class="form-control"
-                                    value="{{ $pesanan->id_pelanggan }}" required>
+                                <input type="number" name="pelanggans_id" id="pelanggans_id" class="form-control"
+                                    value="{{ $pesanan->pelanggans_id }}" required>
+                            </div> --}}
+
+                            <div class="mb-3">
+                                <label for="pelanggans_id" class="form-label">Pilih Pelanggan</label>
+                                <select name="pelanggans_id" id="pelanggans_id" class="form-select" required>
+                                    <option value="">-- Pilih Pelanggan --</option>
+                                    @foreach ($pelanggan as $p)
+                                        <option value="{{ $p->id }}"
+                                            {{ $pesanan->pelanggans_id == $p->id ? 'selected' : '' }}>
+                                            {{ $p->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
+                            
+
 
                             {{-- Tanggal Pesan --}}
                             <div class="mb-3">

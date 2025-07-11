@@ -38,7 +38,7 @@ class PesananController extends Controller
     {
         //proses tambah
         $request->validate([
-            'pelanggans_id' => 'required|exists:pelanggan,id',
+            'pelanggans_id' => 'required',
             'tgl_pesan' => 'required|date',
             'tgl_pengiriman' => 'required|date|after_or_equal:tgl_pesan',
             'alamat_pengiriman' => 'required|string|max:255',
@@ -46,7 +46,7 @@ class PesananController extends Controller
         ]);
 
         $pesanan = new Pesanan;
-        $pesanan->pelanggans_id = $request->id_pelanggan;
+        $pesanan->pelanggans_id = $request->pelanggans_id;
         $pesanan->tgl_pesan = $request->tgl_pesan;
         $pesanan->tgl_pengiriman = $request->tgl_pengiriman;
         $pesanan->alamat_pengiriman = $request->alamat_pengiriman;
@@ -72,8 +72,9 @@ class PesananController extends Controller
     public function edit(string $id)
     {
         //form edit
+        $pelanggan = Pelanggan::all();
         $pesanan = Pesanan::find($id);
-        return view('layouts.pesanan.edit',compact('pesanan'));
+        return view('layouts.pesanan.edit',compact('pesanan','pelanggan'));
     }
 
     /**
@@ -83,7 +84,7 @@ class PesananController extends Controller
     {
          // Proses update data
         $pesanan = Pesanan::findOrFail($id);
-        $pesanan->pelanggans_id = $request->id_pelanggan;
+        $pesanan->pelanggans_id = $request->pelanggans_id;
         $pesanan->tgl_pesan = $request->tgl_pesan;
         $pesanan->tgl_pengiriman = $request->tgl_pengiriman;
         $pesanan->alamat_pengiriman = $request->alamat_pengiriman;

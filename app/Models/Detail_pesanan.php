@@ -9,7 +9,7 @@ class detail_pesanan extends Model
 {
     use HasFactory;
 
-    
+
      protected $fillable = [
         'id_pesanan',
         'id_produk',
@@ -17,4 +17,9 @@ class detail_pesanan extends Model
         'jumlah',
         'total_harga',
     ];
+
+    public function detailpesanan()
+        {
+            return $this->hasOne(Produk::class, 'id', 'id_produk');
+        }
 }

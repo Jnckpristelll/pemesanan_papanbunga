@@ -44,7 +44,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $data->id_pesanan }}</td>
-                                        <td>{{ $data->id_produk }}</td>
+                                        <td>{{ $data->detailpesanan->nama}}</td>
                                         <td>{{ $data->isi_papan }}</td>
                                         <td>{{ $data->jumlah }}</td>
                                         <td>Rp {{ number_format($data->total_harga, 0, ',', '.') }}</td>

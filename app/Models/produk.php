@@ -14,4 +14,8 @@ class produk extends Model
         'harga',
         'ukuran',
     ];
+    public function detailpesanan()
+    {
+        return $this->belongTo(Detail_pesanan::class);
+    }
 }

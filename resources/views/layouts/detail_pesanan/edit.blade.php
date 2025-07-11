@@ -27,10 +27,23 @@
                             </div>
 
                             {{-- ID Produk --}}
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="id_produk" class="form-label">ID Produk</label>
                                 <input type="number" name="id_produk" id="id_produk" class="form-control"
                                     value="{{ $detail_pesanan->id_produk }}" required>
+                            </div> --}}
+
+                            <div class="mb-3">
+                                <label for="id_produk" class="form-label">Pilih Produk</label>
+                                <select name="id_produk" id="id_produk" class="form-select" required>
+                                    <option value="">-- Pilih PelangProdukgan --</option>
+                                    @foreach ($produk as $p)
+                                        <option value="{{ $p->id }}"
+                                            {{ $detail_pesanan->id_produk == $p->id ? 'selected' : '' }}>
+                                            {{ $p->nama }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             {{-- Isi Papan --}}
