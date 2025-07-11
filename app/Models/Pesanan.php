@@ -5,21 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pesanan extends Model
+class Pesanan extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id_pelanggan',
+        'pelanggans_id',
         'tgl_pesan',
         'tgl_pengiriman',
         'alamat_pengiriman',
         'status',
     ];
 
-//     protected $casts = [
-//         'tgl_pesan' => 'date',
-//         'tgl_pengiriman' => 'date',
-//     ];
-//
+    public function pelanggans()
+        {
+            return $this->hasOne(Pelanggan::class, 'id', 'pelanggans_id');
+        }
+
+
+
+        // Relasi: setiap pesanan milik 1 pelanggan
+
+
+
+
  }

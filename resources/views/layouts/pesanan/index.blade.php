@@ -30,20 +30,21 @@
                         <table class="table table-bordered table-hover table-striped align-middle text-center">
                             <thead class="table-light">
                                 <tr>
-                                    <th>No</th>
-                                    <th>ID Pelanggan</th>
-                                    <th>Tgl Pesan</th>
-                                    <th>Tgl Pengiriman</th>
-                                    <th>Alamat Pengiriman</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">ID Pelanggan</th>
+                                    <th class="text-center">Tgl Pesan</th>
+                                    <th class="text-center">Tgl Pengiriman</th>
+                                    <th class="text-center">Alamat Pengiriman</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($pesanan as $data)
                                     <tr>
                                         <td>{{ $nomor++ }}</td>
-                                        <td>{{ $data->id_pelanggan }}</td>
+                                        {{-- <td>{{ $data->id_pelanggan }}</td> --}}
+                                        <td>{{ $data->pelanggans->nama}}</td>
                                         <td>{{ $data->tgl_pesan }}</td>
                                         <td>{{ $data->tgl_pengiriman }}</td>
                                         <td>{{ $data->alamat_pengiriman }}</td>

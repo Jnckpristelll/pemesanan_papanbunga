@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class pelanggan extends Model
+class Pelanggan extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -13,4 +13,10 @@ class pelanggan extends Model
         'no_handphone',
         'alamat',
     ];
+
+    // Relasi: 1 pelanggan punya banyak pesanan
+    public function pesanans()
+    {
+        return $this->belongTo(Pesanan::class);
+    }
 }

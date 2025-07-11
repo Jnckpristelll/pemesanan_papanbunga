@@ -30,13 +30,13 @@
                         <table class="table table-bordered table-hover table-striped align-middle text-center">
                             <thead class="table-light">
                                 <tr>
-                                    <th>No</th>
-                                    <th>ID Pesanan</th>
-                                    <th>ID Produk</th>
-                                    <th>Isi Papan</th>
-                                    <th>Jumlah</th>
-                                    <th>Total Harga</th>
-                                    <th>Aksi</th>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">ID Pesanan</th>
+                                    <th class="text-center">ID Produk</th>
+                                    <th class="text-center">Isi Papan</th>
+                                    <th class="text-center">Jumlah</th>
+                                    <th class="text-center">Total Harga</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

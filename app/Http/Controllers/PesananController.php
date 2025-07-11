@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pesanan;
+use App\Models\Pelanggan;
+
 
 class PesananController extends Controller
 {
@@ -23,8 +25,11 @@ class PesananController extends Controller
     public function create()
     {
         // menampilkan form tambah
-        return view('layouts.pesanan.create');
+        // return view('layouts.pesanan.create');
+         $pelanggan = Pelanggan::all(); // Untuk dropdown pelanggan
+        return view('layouts.pesanan.create', compact('pelanggan'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -33,7 +38,7 @@ class PesananController extends Controller
     {
         //proses tambah
         $request->validate([
-            'id_pelanggan' => 'required',
+            'pelanggans_id' => 'required|exists:pelanggan,id',
             'tgl_pesan' => 'required|date',
             'tgl_pengiriman' => 'required|date|after_or_equal:tgl_pesan',
             'alamat_pengiriman' => 'required|string|max:255',
@@ -41,12 +46,14 @@ class PesananController extends Controller
         ]);
 
         $pesanan = new Pesanan;
-        $pesanan->id_pelanggan = $request->id_pelanggan;
+        $pesanan->pelanggans_id = $request->id_pelanggan;
         $pesanan->tgl_pesan = $request->tgl_pesan;
         $pesanan->tgl_pengiriman = $request->tgl_pengiriman;
         $pesanan->alamat_pengiriman = $request->alamat_pengiriman;
         $pesanan->status = $request->status;
         $pesanan->save();
+
+        Pesanan::create($request->all());
 
         return redirect('/pesanan')->with('success', 'Pesanan berhasil ditambahkan.');
     }
@@ -76,7 +83,7 @@ class PesananController extends Controller
     {
          // Proses update data
         $pesanan = Pesanan::findOrFail($id);
-        $pesanan->id_pelanggan = $request->id_pelanggan;
+        $pesanan->pelanggans_id = $request->id_pelanggan;
         $pesanan->tgl_pesan = $request->tgl_pesan;
         $pesanan->tgl_pengiriman = $request->tgl_pengiriman;
         $pesanan->alamat_pengiriman = $request->alamat_pengiriman;
