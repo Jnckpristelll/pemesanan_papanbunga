@@ -38,7 +38,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            
+
 
 
                             {{-- Tanggal Pesan --}}
@@ -65,7 +65,7 @@
                             <div class="mb-3">
                                 <label for="status" class="form-label">Status</label>
                                 <select name="status" id="status" class="form-select" required>
-                                    @foreach (['pending', 'pengiriman gagal', 'berhasil'] as $status)
+                                    @foreach (['pending', 'gagal', 'berhasil'] as $status)
                                         <option value="{{ $status }}"
                                             {{ $pesanan->status === $status ? 'selected' : '' }}>
                                             {{ ucfirst($status) }}

@@ -31,7 +31,7 @@
                             <thead class="table-light">
                                 <tr>
                                     <th class="text-center">No</th>
-                                    <th class="text-center">ID Pelanggan</th>
+                                    <th class="text-center">Nama Pelanggan</th>
                                     <th class="text-center">Tgl Pesan</th>
                                     <th class="text-center">Tgl Pengiriman</th>
                                     <th class="text-center">Alamat Pengiriman</th>
@@ -51,7 +51,7 @@
                                         <td>
                                             <span class="badge
                                                 @if($data->status == 'pending') bg-warning
-                                                @elseif($data->status == 'pengiriman gagal') bg-danger
+                                                @elseif($data->status == 'gagal') bg-danger
                                                 @elseif($data->status == 'berhasil') bg-success
                                                 @endif">
                                                 {{ ucfirst($data->status) }}

@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('detail_pesanans', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_pesanan');
+            // $table->bigInteger('id_pesanan');
+            $table->unsignedBigInteger('id_pesanan');
+            $table->foreign('id_pesanan')->references('id')->on('pesanans')->onDelete('cascade');
+
             $table->bigInteger('id_produk');
             $table->text('isi_papan');
             $table->integer('jumlah');

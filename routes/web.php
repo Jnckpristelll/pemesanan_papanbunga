@@ -72,7 +72,7 @@ Route::get('/detail_pesanan/create', [DetailpesananController::class, 'create'])
 Route::post('/detail_pesanan', [DetailpesananController::class, 'store']);
 Route::get('/detail_pesanan/edit/{id}', [DetailpesananController::class, 'edit']);
 Route::put('/detail_pesanan/{id}', [DetailpesananController::class, 'update']);
-Route::delete('/detapl_pesanan/{id}', [DetailpesananController::class, 'destroy']);
+Route::delete('/detail_pesanan/{id}', [DetailpesananController::class, 'destroy']);
 // route end detail pesanan
 
 

@@ -42,7 +42,7 @@ class PesananController extends Controller
             'tgl_pesan' => 'required|date',
             'tgl_pengiriman' => 'required|date|after_or_equal:tgl_pesan',
             'alamat_pengiriman' => 'required|string|max:255',
-            'status' => 'required|in:pending,pengiriman gagal,berhasil',
+            'status' => 'required|in:pending,gagal,berhasil',
         ]);
 
         $pesanan = new Pesanan;
@@ -53,7 +53,6 @@ class PesananController extends Controller
         $pesanan->status = $request->status;
         $pesanan->save();
 
-        Pesanan::create($request->all());
 
         return redirect('/pesanan')->with('success', 'Pesanan berhasil ditambahkan.');
     }

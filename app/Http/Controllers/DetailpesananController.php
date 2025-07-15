@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Detail_pesanan;
 use App\Models\Produk;
+use App\Models\Pesanan;
 
 class DetailpesananController extends Controller
 {
@@ -15,7 +16,7 @@ class DetailpesananController extends Controller
     {
         // menampilkan data detail pesanan
         $nomor = 1;
-        $detail_pesanan= Detail_pesanan::all();
+        $detail_pesanan = Detail_pesanan::with(['pesanan', 'produk'])->get();
         return view('layouts.detail_pesanan.index', compact('detail_pesanan','nomor'));
     }
 
@@ -25,8 +26,9 @@ class DetailpesananController extends Controller
     public function create()
     {
         // menampilkan form tambah detail pesanan
-        $produk = Produk::all(); // Untuk dropdown pelanggan
-        return view('layouts.detail_pesanan.create', compact('produk'));
+        $produk = Produk::all();
+        $pesanan = Pesanan::all(); // Untuk dropdown pelanggan
+        return view('layouts.detail_pesanan.create', compact('produk','pesanan'));
     }
 
     /**
@@ -36,7 +38,7 @@ class DetailpesananController extends Controller
     {
         //
         $request->validate([
-            'id_pesanan'       => 'required|numeric',
+            'id_pesanan'       => 'required|exists:pesanans,id',
             'id_produk'        => 'required',
             'isi_papan'        => 'required|string|max:255',
             'jumlah'           => 'required|integer|min:1',
@@ -50,6 +52,8 @@ class DetailpesananController extends Controller
         $detail_pesanan->jumlah = $request->jumlah;
         $detail_pesanan->total_harga = $request->total_harga;
         $detail_pesanan->save();
+
+         Detail_pesanan::create($request->all());
 
         return redirect('/detail_pesanan')->with('success', 'Detail pesanan berhasil ditambahkan.');
     }

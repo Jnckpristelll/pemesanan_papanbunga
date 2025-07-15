@@ -58,7 +58,7 @@
                                     <label for="status" class="form-label">Status</label>
                                     <select name="status" id="status" class="form-select" required>
                                         <option value="pending">Pending</option>
-                                        <option value="pengiriman gagal">Pengiriman Gagal</option>
+                                        <option value="gagal">Gagal</option>
                                         <option value="berhasil">Berhasil</option>
                                     </select>
                                 </div>

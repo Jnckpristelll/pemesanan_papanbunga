@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('tgl_pesan');
             $table->date('tgl_pengiriman');
             $table->text('alamat_pengiriman');
-            $table->enum('status',['pending','berhasil','pengiriman']);
+            $table->enum('status',['pending','gagal','berhasil',]);
             $table->timestamps();
         });
     }

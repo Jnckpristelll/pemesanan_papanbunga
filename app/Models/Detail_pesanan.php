@@ -22,4 +22,10 @@ class detail_pesanan extends Model
         {
             return $this->hasOne(Produk::class, 'id', 'id_produk');
         }
+
+    public function pesanan()
+    {
+        return $this->belongsTo(Pesanan::class, 'id_pesanan');
+    }
+
 }
